@@ -7,6 +7,8 @@ const [id, setId] = useState("");
 
 const handleChange =(e) =>{
    setId(e.target.value);
+
+
 }
 
    return (
@@ -29,12 +31,18 @@ const handleChange =(e) =>{
             marginRight:20,
          
          }} />
-         <button onClick={()=>onSearch(id)} 
+         <button onClick={() => { onSearch(id); setId(''); }}
          style={{
             height:40,
             width:100,
             borderRadius: 10,
          }}>Agregar</button> 
+         <button 
+         style={{
+            height:40,
+            width:100,
+            borderRadius: 10,
+         }}>Aletorio</button>
       </div>
    );
 }

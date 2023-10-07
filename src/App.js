@@ -11,6 +11,13 @@ function App() {
    const [characters, setCharacters] = useState([]);
 
    const onSearch = async (id) => {
+
+      //
+      const find = characters.find((character) => character.id === +id);
+      console.log('find', find);
+      if (find) return window.alert("¡Este personaje ya fue agregado!");
+
+
    try{
       const response = await axios (`https://rickandmortyapi.com/api/character/${id}`);
       const data = response.data;
@@ -26,10 +33,25 @@ function App() {
    }
     
    };
+
+   const onClose = (id)=> {
+
+   const response = characters.filter((character) => character.id !== id);
+   setCharacters(response);
+   }
+
+   const random = (id) => {
+      const randomId = Math.floor(Math.random() * 825) + 1;
+      onSearch(randomId);
+   }
+
    return (
       <div className='App'>
         <Nav onSearch={onSearch} />
-        <Cards characters={characters} />
+        <Cards
+         characters={characters}
+         onClose={onClose}
+         />
       </div>
    );
 }
