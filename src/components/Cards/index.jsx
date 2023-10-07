@@ -8,7 +8,7 @@ export default function Cards(props) {
       {console.log(characters)}
       {characters.map((character) => {
          return( 
-      <Card
+      <Card 
       id={character.id}
       key={character.id}
       name={character.name}
