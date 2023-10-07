@@ -1,5 +1,13 @@
-export default function SearchBar(props) {
-   const { onSearch } = props;
+import React, { useState } from "react";
+
+export default function SearchBar({onSearch}) {
+   //const { onSearch } = props;
+
+const [id, setId] = useState("");   
+
+const handleChange =(e) =>{
+   setId(e.target.value);
+}
 
    return (
       <div style={{
@@ -9,7 +17,11 @@ export default function SearchBar(props) {
          justifyContent: 'end',
          alignItems: 'center',
          }}>
-         <input type='search' 
+         <input
+         type='search' 
+         value={id}
+         onChange={handleChange}
+
          style={{
             height:40,
             width: 250,
@@ -17,7 +29,7 @@ export default function SearchBar(props) {
             marginRight:20,
          
          }} />
-         <button onClick={onSearch} 
+         <button onClick={()=>onSearch(id)} 
          style={{
             height:40,
             width:100,
