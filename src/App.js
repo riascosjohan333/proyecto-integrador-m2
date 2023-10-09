@@ -9,6 +9,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/About';
 import Detail from './components/Details';
 import Form from './components/Form';
+import Favorites from './components/Favorites';
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
          onClose={onClose}
          />*/}
          <Routes>
+         <Route path='/favorites' element={ <Favorites/> } />
          <Route path='/' element={ <Form login={login} /> } />
             <Route path='/home' 
                element={

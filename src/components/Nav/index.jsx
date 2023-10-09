@@ -6,7 +6,7 @@ const Nav = ({onSearch}) => {
   return (
     <div>
          <SearchBar
-          //onSearch={(characterID) => window.alert(characterID)}
+         //onSearch={(characterID) => window.alert(characterID)}
           onSearch ={onSearch} />
           <Link to={'/home'}> 
           <button>Home</button>
@@ -14,6 +14,10 @@ const Nav = ({onSearch}) => {
           <Link to={'/about'} > 
           <button>About</button>
           </Link>
+          <Link to={'/favorites'} > 
+          <button>Favorites</button>
+          </Link>
+          
     </div>
   )
 }
